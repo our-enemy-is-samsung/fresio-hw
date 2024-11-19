@@ -5,3 +5,19 @@
   align-items: center;
   justify-content: space-between;
 }
+.batteryContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+
+}
+.battery{
+  width: 29px;
+  height: 14px;
+  box-shadow: 0 0 0 1.5px #b4b4c8 inset;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 3px;
+
+}
