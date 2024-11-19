@@ -1,0 +1,65 @@
+.container{
+  background-color: var(--surface);
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+.informationBox{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-self: center;
+  margin-left: 60px;
+  margin-right: 134px;
+}
+.informationContents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 37px;
+}
+
+.informationContent{
+  display: flex;
+  gap: 18px;
+  height: 96px;
+}
+.informationBox h1{
+  margin-bottom: 51px;
+  font-size: var(--title-large);
+  font-weight: 500;
+  color: #000;
+}
+.informationBox p{
+  font-size: var(--title-small);
+  color: var(--content-dim);
+  max-width: 296px;
+}
+.informationContent span{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--surface);
+  background-color: var(--brand);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.qrNcodeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+}
+.qrNcodeBox p{
+  font-size: var(--heading-small);
+  color: var(--content-dim);
+  margin-top: 23px;
+}
+.qrNcodeBox h3{
+  font-size: var(--title-large);
+  color: var(--brand);
+  font-weight: 500;
+  margin-top: 8px;
+}

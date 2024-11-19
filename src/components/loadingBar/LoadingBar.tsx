@@ -1,8 +1,10 @@
 import styles from "./loadingBar.module.scss";
 import { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function LoadingBar() {
     const [progress, setProgress] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -10,6 +12,7 @@ export default function LoadingBar() {
                 if (prev >= 100) {
                     clearInterval(interval);
                     console.log("success");
+                    navigate("/set")
                     return prev;
                 }
                 return prev + 1;

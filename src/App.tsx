@@ -1,6 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
-import Booting from "./pages/booting/booting.tsx";
+import BootingPage from "./pages/booting/bootingPage.tsx";
+import {SettingPage} from "./pages/booting/settingPage.tsx";
 import"./design/colors.css"
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
             <div className="viewport-box">
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/boot" element={<Booting/>} />
+                        <Route path="/boot" element={<BootingPage/>} />
+                        <Route path ="/set" element={<SettingPage/>}/>
                     </Routes>
                 </BrowserRouter>
             </div>
