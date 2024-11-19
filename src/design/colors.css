@@ -1,0 +1,18 @@
+:root {
+    --surface: #fff;
+    --surface-dim: #f5f5f5;
+    --brand: #f3902f;
+    --brand-dim: #faa75f;
+    --brand-dark: #d67b24;
+    --brand-container: #fff3e8;
+    --error: #f04438;
+    --error-background: #ffe9e3;
+    --success: #12b76a;
+    --success-background: #e6f9ee;
+    --content: #141414;
+    --content-dim: #707085;
+    --content-secondary: #b4b4c8;
+    --container-dark: #ededf5;
+    --container-darker: #e3e3f0;
+    --container-darkest: #d5d5e5;
+}
