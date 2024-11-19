@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import jinam from "../../assets/images/jinam.svg";
+import ulma from "../../assets/images/ulmaannameum.svg";
+import styles from "./expirationDateBox.module.scss"
 
 type expirationDateBoxProps = {
     expirationDate: number;
@@ -22,11 +25,28 @@ export default function ExpirationDateBox({ expirationDate, name }: expirationDa
             }
         };
         expiredFunction();
-    }, [expirationDate, date]);
+    }, [expirationDate, date, isExpired]);
+
+    if (daysLeft !== null && daysLeft >= 5) {
+        return null;
+    }
+    const boxStyle = isExpired ? { backgroundColor: 'var(--content-dim)' } : { backgroundColor: 'var(--error)' };
 
     return (
-        <div>
-            <h1>{isExpired ? `${name} has expired` : `Time left: ${daysLeft} day(s)`}</h1>
-        </div>
+        <>
+            <div style={boxStyle} className={styles.container}>
+                <div className={styles.foodContent1}>
+                    <img src={isExpired ? jinam : ulma}/>
+                    <p>{isExpired ? '유통기한이 지났습니다' : '유통기한이 곧 끝나요'}</p>
+                </div>
+                <div>
+                    <div className={styles.foodContent2}>
+                        <p>{name}</p>
+                        <p>{isExpired ? `` : `(${daysLeft}일)`}</p>
+                    </div>
+                </div>
+            </div>
+        </>
+
     );
 }

@@ -31,6 +31,8 @@
     --body-small: 14px;
     --label-large: 12px;
     --label-small: 11px;
+    --section-title : 16px;
+    --section-content : 16px;
     font-family: "Wanted Sans";
 }
 body{
