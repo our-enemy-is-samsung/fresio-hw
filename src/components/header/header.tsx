@@ -39,6 +39,7 @@ export default function Header() {
                     {DateFunction()}
                 </p>
             </div>
+
             <div className={styles.widget}>
                 <div className={styles.batteryContainer}>
                     <div className={styles.battery}>
