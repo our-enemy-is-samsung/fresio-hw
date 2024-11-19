@@ -2,8 +2,12 @@
   width: 90%;
   height: 22px;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
+}
+.container p{
+  color: var(--content-dim);
+  font-size: var(--content-large);
 }
 .batteryContainer{
   display: flex;
@@ -19,5 +23,9 @@
   border-radius: 5px;
   box-sizing: border-box;
   padding: 3px;
-
+}
+.widget{
+  display: flex;
+  align-items: center;
+  gap: 13px;
 }

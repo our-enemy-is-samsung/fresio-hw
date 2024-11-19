@@ -2,7 +2,7 @@ import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import BootingPage from "./pages/booting/bootingPage.tsx";
 import {SettingPage} from "./pages/booting/settingPage.tsx";
-import Mainpage from "./pages/main/mainpage.tsx";
+import MainPage from "./pages/main/mainPage.tsx";
 import"./design/colors.css"
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
                     <Routes>
                         <Route path="/boot" element={<BootingPage/>} />
                         <Route path ="/set" element={<SettingPage/>}/>
-                        <Route path="/" element={<Mainpage/>}/>
+                        <Route path="/" element={<MainPage/>}/>
                     </Routes>
                 </BrowserRouter>
             </div>

@@ -1,8 +1,9 @@
 import Header from "../../components/header/header.tsx";
+import styles from "./mainPage.module.scss"
 
-export default function Mainpage() {
+export default function MainPage() {
     return (
-        <div>
+        <div className={styles.container}>
             <Header />
         </div>
     )

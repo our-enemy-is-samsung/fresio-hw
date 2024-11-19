@@ -2,6 +2,7 @@ import styles from "./header.module.scss"
 import batteryknob from "../../assets/images/Frame 3.svg"
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import wifi from "../../assets/images/wifi.svg"
 
 export default function Header() {
     const navigate = useNavigate();
@@ -34,15 +35,18 @@ export default function Header() {
     return (
         <div className={styles.container}>
             <div>
-                {DateFunction()}
+                <p>
+                    {DateFunction()}
+                </p>
             </div>
-            <div>
+            <div className={styles.widget}>
                 <div className={styles.batteryContainer}>
                     <div className={styles.battery}>
                         <div style={{maxWidth: "23px", height: "8px", borderRadius: "2.5px", backgroundColor: "var(--brand)"}} id="remainingAmount"/>
                     </div>
                     <img src={batteryknob} alt="Batteryknob"/>
                 </div>
+                <img src={wifi} alt="Wifi"/>
             </div>
         </div>
     )

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #707085;
+    background: black;
 }
 .viewport-box{
     width: 800px;
