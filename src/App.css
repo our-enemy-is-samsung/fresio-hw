@@ -4,4 +4,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #707085;
+}
+.viewport-box{
+    width: 800px;
+    height: 480px;
 }
