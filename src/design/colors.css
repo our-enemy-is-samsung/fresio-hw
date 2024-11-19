@@ -1,3 +1,6 @@
+
+@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+
 * {
     --surface: #fff;
     --surface-dim: #f5f5f5;
@@ -17,6 +20,18 @@
     --container-darkest: #d5d5e5;
     padding: 0;
     margin: 0;
+    --title-large: 34px;
+    --title-medium: 28px;
+    --title-small: 23px;
+    --heading-large: 21px;
+    --heading-small: 19px;
+    --content-large: 16px;
+    --content-small: 15px;
+    --body-large: 17px;
+    --body-small: 14px;
+    --label-large: 12px;
+    --label-small: 11px;
+    font-family: "Wanted Sans";
 }
 body{
     background-color: var(--surface);
