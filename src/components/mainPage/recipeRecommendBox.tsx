@@ -4,8 +4,9 @@ import recipeIcon from "../../assets/images/recipeIcon.svg"
 import styles from "./recipeRecommendBox.module.scss"
 
 export default function RecipeRecommendBox () {
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} >
             <div className={styles.textContainer}>
                 <span>
                     <img src={recipeIcon}/>

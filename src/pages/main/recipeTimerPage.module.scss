@@ -1,0 +1,19 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+.timerSection{
+  width: 306px;
+}
+.recipeSection{
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  margin-top: 24px;
+  border: 1px solid var(--surface);
+}
