@@ -9,6 +9,10 @@
 }
 .timerSection{
   width: 306px;
+  display: flex;
+  height: 90%;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .recipeSection{
   display: flex;
@@ -16,4 +20,24 @@
   gap: 21px;
   margin-top: 24px;
   border: 1px solid var(--surface);
+}
+.timerButtonBox{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.timerButtons{
+  padding: 20px 30px;
+  box-sizing: border-box;
+  color: white;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.timerButtons p{
+  font-size: var(--title-small);
+  color: var(--surface);
+  line-height: 32px;
 }

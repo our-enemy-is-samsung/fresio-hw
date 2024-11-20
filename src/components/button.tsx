@@ -4,9 +4,10 @@ type ButtonProps = {
     backgroundColor?: string;
     children: React.ReactNode;
     onclick?: () => void;
+    className?: string;
 };
 
-export default function Button({ width, height, backgroundColor, children, onclick }: ButtonProps) {
+export default function Button({ width, height, backgroundColor, children, onclick, className }: ButtonProps) {
     return (
         <div
             style={{
@@ -19,6 +20,7 @@ export default function Button({ width, height, backgroundColor, children, oncli
                 flexDirection:"row"
             }}
             onClick={onclick}
+            className={className}
         >
             {children}
         </div>
