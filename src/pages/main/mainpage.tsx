@@ -2,6 +2,7 @@ import Header from "../../components/header/header.tsx";
 import styles from "./mainPage.module.scss";
 import ExpirationDateBox from "../../components/mainPage/expirationDateBox.tsx";
 import RecipeRecommendBox from "../../components/mainPage/recipeRecommendBox.tsx";
+import {useState} from "react";
 
 const DummyData = {
     1: {
@@ -21,6 +22,8 @@ const DummyData = {
 
 
 export default function MainPage() {
+    const [isRecognition , setIsRecognition] = useState(false);
+
     return (
         <div className={styles.container}>
             <Header />
@@ -38,7 +41,7 @@ export default function MainPage() {
                 })}
                 <RecipeRecommendBox/>
             </div>
-            <div className={styles.recipeContainer}>
+            <div className={styles.recipeContainer} onClick={() => setIsRecognition(true)}>
                 <h1>
                     {`${new Date().getHours()}:${new Date().getMinutes()}`}
                 </h1>
@@ -46,6 +49,12 @@ export default function MainPage() {
                     <p>이탈리아 전통 스테이크</p>
                 </div>
             </div>
+            {isRecognition && (
+                <div className={styles.aiActivationContainer}  onClick={() => setIsRecognition(false)}>
+                    <h1>저녁 추천좀</h1>
+                    <div></div>
+                </div>
+            )}
         </div>
     );
 }
