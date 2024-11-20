@@ -3,14 +3,10 @@ import batteryknob from "../../assets/images/Frame 3.svg"
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import wifi from "../../assets/images/wifi.svg"
+import newDateFunction from "../../feature/newDateFunction.tsx"
 
 export default function Header() {
     const navigate = useNavigate();
-
-    const DateFunction = () => {
-        const date = new Date();
-        return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`
-    }
 
     const batteryFunction = () => {
         const battery = 90 // 나중에 배터리양 구해올거임
@@ -19,7 +15,7 @@ export default function Header() {
             remainingAmount.style.width = `${23/100 * battery}px`
             if (battery === 0) {
                 navigate("/set")
-            } else if(battery > 0 && battery <= 25) {
+            } else if(battery > 0 && battery <= 30) {
                 remainingAmount.style.backgroundColor= `var(--error)`
             } else {
                 remainingAmount.style.backgroundColor= `var(--brand)`
@@ -36,7 +32,7 @@ export default function Header() {
         <div className={styles.container}>
             <div>
                 <p>
-                    {DateFunction()}
+                    {newDateFunction()}
                 </p>
             </div>
 
