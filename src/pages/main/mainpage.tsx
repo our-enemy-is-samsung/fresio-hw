@@ -26,7 +26,9 @@ export default function MainPage() {
 
     return (
         <div className={styles.container}>
-            <Header />
+            <div style={{width:'90%'}}>
+                <Header />
+            </div>
             <div className={styles.foodContainer}>
                 {Object.keys(DummyData).map((key) => {
                     const { name, expirationDate } = DummyData[parseInt(key)]; // 각 데이터 항목을 가져옴

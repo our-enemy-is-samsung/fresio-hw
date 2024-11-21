@@ -36,6 +36,7 @@ export default function RecipeTimerPage() {
     const [timerStop, setTimerStop] = useState(false);
     const [isInitial, setIsInitial] = useState(true);
     const [thisRecipeEnd, setThisRecipeEnd] = useState(false);
+    const [isRecognition, setIsRecognition] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
     const [nowRecipe, setNowRecipe] = useState<{ description: string; time: number } | null>(null);
     const [nextRecipe, setNextRecipe] = useState<{ description: string; time: number } | null>(null);
@@ -143,7 +144,10 @@ export default function RecipeTimerPage() {
                     )}
                 </div>
             </div>
-            <div className={styles.recipeSection}>
+            <div className={styles.recipeSection} onClick={() =>
+            {setIsRecognition(true)
+            setTimerStop(true)
+            }}>
                 {nowRecipe && (
                     <RecipeBox description={nowRecipe.description} focused={true} />
                 )}
@@ -151,6 +155,14 @@ export default function RecipeTimerPage() {
                     <RecipeBox description={nextRecipe.description} focused={false} />
                 )}
             </div>
+            {isRecognition && (
+                <div className={styles.aiActivationContainer}  onClick={() => {setIsRecognition(false)
+                    setTimerStop(false)
+                }}>
+                    <h1>저녁 추천좀</h1>
+                    <div></div>
+                </div>
+            )}
         </div>
     );
 }
