@@ -1,45 +1,50 @@
 import { useState, useEffect } from "react";
 
 type TimerProps = {
-    initialMinute: number;
-    initialSecond: number;
+    initialSeconds: number; // 초로 입력받음
     stopped: boolean;
     initialTime: boolean;
+    onEnd: () => void; // 타이머가 끝났을 때 호출되는 콜백
 };
 
-export default function Timer({ initialMinute, initialSecond, stopped, initialTime }: TimerProps) {
-    const [minute, setMinute] = useState(initialMinute);
-    const [second, setSecond] = useState(initialSecond);
+export default function Timer({ initialSeconds, stopped, initialTime, onEnd }: TimerProps) {
+    const [totalSeconds, setTotalSeconds] = useState(initialSeconds);
+    const formatTime = (seconds: number) => ({
+        minute: Math.floor(seconds / 60),
+        second: seconds % 60,
+    });
 
     useEffect(() => {
         if (initialTime) {
-            setMinute(initialMinute);
-            setSecond(initialSecond);
+            setTotalSeconds(initialSeconds);
         }
-    }, [initialTime, initialMinute, initialSecond]);
+    }, [initialTime, initialSeconds]);
 
     useEffect(() => {
         if (stopped) return;
         const intervalId = setInterval(() => {
-            setSecond((prevSecond) => {
-                if (prevSecond > 0) {
-                    return prevSecond - 1;
-                } else if (minute > 0) {
-                    setMinute((prevMinute) => prevMinute - 1);
-                    return 59;
+            setTotalSeconds((prevSeconds) => {
+                if (prevSeconds > 0) {
+                    return prevSeconds - 1;
                 } else {
                     clearInterval(intervalId);
-                    return prevSecond;
+                    onEnd();
+                    return 0;
                 }
             });
         }, 1000);
 
         return () => clearInterval(intervalId);
-    }, [stopped, minute]);
+    }, [stopped, onEnd]);
+
+    const { minute, second } = formatTime(totalSeconds);
 
     return (
         <div>
-            <p style={{fontSize:"110px", fontWeight:"bold", color:"white"}}>{minute}:{second}</p>
+            <p style={{ fontSize: "110px", fontWeight: "bold", color: "white" }}>
+                {minute}:{second.toString().padStart(2, "0")}
+            </p>
         </div>
     );
 }
+
