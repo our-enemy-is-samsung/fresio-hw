@@ -33,9 +33,14 @@
     --label-small: 11px;
     --section-title : 16px;
     --section-content : 16px;
-    font-family: "Wanted Sans";
+    --font-family: "Wanted Sans Variable";
     box-sizing: border-box;
 }
 body{
     background-color: var(--surface);
+}
+
+* {
+    font-family: var(--font-family);
+    overflow: hidden;
 }

@@ -1,7 +1,7 @@
 import styles from "./settingPage.module.scss"
 import Lottie from "lottie-react";
 import qr from "../../assets/images/qr.svg"
-import bootAnimation from "../../assets/json/bootAnimation.json"
+import bootAnimation from "../../../public/bootAnimation.json"
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 

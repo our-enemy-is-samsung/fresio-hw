@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "토마토",
+    "createdAt": "2024-01-01",
+    "expiredAt": "2024-01-10",
+    "quantity": 3
+  },
+  {
+    "id": "2",
+    "name": "니얼굴윤겔라",
+    "createdAt": "2024-01-01",
+    "expiredAt": "2024-11-24",
+    "quantity": 3
+  },
+  {
+    "id": "4",
+    "name": "tafds",
+    "createdAt": "2024-01-01",
+    "expiredAt": "2024-11-26",
+    "quantity": 3
+  },
+  {
+    "id": "3",
+    "name": "ㅁㄴㅇㄹ",
+    "createdAt": "2024-01-01",
+    "expiredAt": "2024-01-10",
+    "quantity": 3
+  }
+]
