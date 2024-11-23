@@ -91,17 +91,20 @@ export default function RecipeTimerPage() {
 
                 <div>
                     {!timerStop && (
+
                         <div className={styles.stopNnextContainer}>
-                            <Button
-                                width="226px"
-                                height="72px"
-                                onclick={() => setTimerStop(true)}
-                                backgroundColor="--content"
-                                className={styles.timerButtons}
-                            >
-                                <img src={pause} alt="pause icon" />
-                                <p>타이머 멈추기</p>
-                            </Button>
+                            {!thisRecipeEnd && (
+                                <Button
+                                    width="226px"
+                                    height="72px"
+                                    onclick={() => setTimerStop(true)}
+                                    backgroundColor="--content"
+                                    className={styles.timerButtons}
+                                >
+                                    <img src={pause} alt="pause icon" />
+                                    <p>타이머 멈추기</p>
+                                </Button>
+                            )}
                             {thisRecipeEnd && (
                                 <Button
                                     width="100px"

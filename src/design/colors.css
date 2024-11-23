@@ -34,6 +34,7 @@
     --section-title : 16px;
     --section-content : 16px;
     font-family: "Wanted Sans";
+    box-sizing: border-box;
 }
 body{
     background-color: var(--surface);
