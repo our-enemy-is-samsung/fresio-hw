@@ -13,22 +13,22 @@ const dummyData = {
     "1": {
         description: "밀가루 3컵이면 2~3명이서 먹기 딱 좋은 양이 된답니다.\n" +
             "만들어둔 반죽은 비닐에 넣어 1시간 이상 숙성시켜주세요. 숙성한 반죽을 익힘 없이 좌호빈 얼굴에 던진 후 맛있게 먹으면 됩니다",
-        time: 5,
+        time: 2,
     },
     "2": {
         description: "밀가루 5컵이면 2~3명이서 먹기 딱 좋은 양이 된답니다.\n" +
             "만들어둔 반죽은 비닐에 넣어 1시간 이상 숙성시켜주세요. 숙성한 반죽을 익힘 없이 좌호빈 얼굴에 던진 후 맛있게 먹으면 됩니다",
-        time: 5,
+        time: 2,
     },
     "3": {
         description: "밀가루 7컵이면 2~3명이서 먹기 딱 좋은 양이 된답니다.\n" +
             "만들어둔 반죽은 비닐에 넣어 1시간 이상 숙성시켜주세요. 숙성한 반죽을 익힘 없이 좌호빈 얼굴에 던진 후 맛있게 먹으면 됩니다",
-        time: 90,
+        time: 2,
     },
     "4": {
         description: "밀가루 9컵이면 2~3명이서 먹기 딱 좋은 양이 된답니다.\n" +
             "만들어둔 반죽은 비닐에 넣어 1시간 이상 숙성시켜주세요. 숙성한 반죽을 익힘 없이 좌호빈 얼굴에 던진 후 맛있게 먹으면 됩니다",
-        time: 50,
+        time: 2,
     },
 };
 
@@ -37,6 +37,7 @@ export default function RecipeTimerPage() {
     const [isInitial, setIsInitial] = useState(true);
     const [thisRecipeEnd, setThisRecipeEnd] = useState(false);
     const [isRecognition, setIsRecognition] = useState(false);
+    const [lastRecipe, setLastRecipe] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
     const [nowRecipe, setNowRecipe] = useState<{ description: string; time: number } | null>(null);
     const [nextRecipe, setNextRecipe] = useState<{ description: string; time: number } | null>(null);
@@ -58,12 +59,19 @@ export default function RecipeTimerPage() {
         setThisRecipeEnd(true);
     };
 
+    const handleLastRecipe = () => {
+        navigate("/")
+    }
+
     const handleNextRecipe = () => {
         const recipeEntries = Object.entries(dummyData).filter(([key]) => key !== "name");
         if (currentStep < recipeEntries.length - 1) {
             setCurrentStep(currentStep + 1);
             updateRecipes(currentStep + 1);
             setThisRecipeEnd(false);
+            if ( !nextRecipe ) {
+                setLastRecipe(true)
+            }
         }
     };
 
@@ -72,6 +80,7 @@ export default function RecipeTimerPage() {
         setNowRecipe(recipeEntries[step][1] as { description: string; time: number } | null);
         setNextRecipe(recipeEntries[step + 1]?.[1] as { description: string; time: number } | null);
         setIsInitial(!!recipeEntries[step + 1]);
+        console.log(lastRecipe);
     };
 
     return (
@@ -93,7 +102,7 @@ export default function RecipeTimerPage() {
                     {!timerStop && (
 
                         <div className={styles.stopNnextContainer}>
-                            {!thisRecipeEnd && (
+                            {!thisRecipeEnd && !lastRecipe && (
                                 <Button
                                     width="226px"
                                     height="72px"
@@ -105,8 +114,9 @@ export default function RecipeTimerPage() {
                                     <p>타이머 멈추기</p>
                                 </Button>
                             )}
-                            {thisRecipeEnd && (
+                            {thisRecipeEnd && !lastRecipe && (
                                 <Button
+
                                     width="100px"
                                     height="72px"
                                     onclick={handleNextRecipe}
@@ -114,6 +124,12 @@ export default function RecipeTimerPage() {
                                     className={styles.timerButtons}
                                 >
                                     <p>다음</p>
+                                </Button>
+                            )}
+                            {lastRecipe && (
+                                <Button width="80px"
+                                        height="72px" onclick={handleLastRecipe} backgroundColor="--content" className={styles.timerButtons}>
+                                    끝!
                                 </Button>
                             )}
                         </div>
@@ -152,7 +168,9 @@ export default function RecipeTimerPage() {
             setTimerStop(true)
             }}>
                 {nowRecipe && (
-                    <RecipeBox description={nowRecipe.description} focused={true} />
+                    <>
+                        <RecipeBox description={nowRecipe.description} focused={true} />
+                    </>
                 )}
                 {nextRecipe && (
                     <RecipeBox description={nextRecipe.description} focused={false} />
