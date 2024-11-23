@@ -115,7 +115,7 @@ export default function RecipeTimerPage() {
                                 </Button>
                             )}
                             {thisRecipeEnd && !lastRecipe && (
-                                <Button v
+                                <Button
 
                                     width="100px"
                                     height="72px"
