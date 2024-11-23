@@ -1,0 +1,19 @@
+.container{
+  width: 350px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 17px 24px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+.container h1{
+  font-size: var(--title-small);
+  color : var(--content-secondary);
+  font-weight: 450;
+}
+.container p{
+  font-size: var(--heading-large);
+  color: var(--content);
+}

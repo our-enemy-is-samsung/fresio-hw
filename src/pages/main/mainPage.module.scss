@@ -1,0 +1,129 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: var(--surface);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+.foodContainer{
+  width: 90%;
+  display: flex;
+  gap: 12px;
+  margin-top: 42px;
+  margin-bottom: 33px;
+}
+
+.recipeContainer{
+  width: 100%;
+  height: 229px;
+  background-image: url("../../assets/images/mainTest.png");
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  color: var(--surface);
+}
+
+.recipeContainer h1{
+  font-size: 82px;
+  font-weight: 400;
+}
+
+.recipeName{
+  display: flex;
+  flex-direction: column;
+  color: var(--surface);
+  align-items: end;
+  margin-bottom: 12px;
+}
+
+.recipeName h1{
+  font-size: var(--title-large);
+  font-weight: 200;
+}
+
+.aiActivationContainer{
+  width: 800px;
+  height: 480px;
+  top: 50vh;
+  left: 50vw;
+  transform: translateX(-50%) translateY(-50%);
+  position: absolute;
+  background: rgba(255,255,255,0.4);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 30px;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.aiActivationContainer > h1{
+  font-size: var(--title-large);
+  line-height: 42px;
+  color: var(--surface);
+  font-weight: 600;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 2px 11.3px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s ease-out 0.3s forwards;
+  z-index: 1000;
+}
+
+.aiActivationContainer > div {
+  height: 404px;
+  width: 404px;
+  border-radius: 50%;
+  position: absolute;
+  border: 1px solid #12b76a;
+  top: 322px;
+  background: radial-gradient(circle at left, #fa26e4, #f89028);
+  filter: blur(250px);
+  z-index: -1;
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  animation: spinIn 1.5s ease-out 0.2s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spinIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1) rotate(360deg);
+  }
+}

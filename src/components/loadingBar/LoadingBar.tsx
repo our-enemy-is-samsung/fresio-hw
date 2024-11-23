@@ -11,7 +11,6 @@ export default function LoadingBar() {
             setProgress((prev) => {
                 if (prev >= 100) {
                     clearInterval(interval);
-                    console.log("success");
                     navigate("/set")
                     return prev;
                 }
